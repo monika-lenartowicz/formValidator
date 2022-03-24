@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walidator formularza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form>
+            <h1 class="header">Zarejestruj się</h1>
+            <div class="form-box">
+                <label for="username">Nazwa użytkownika: </label>
+                <input type="text" placeholder="Podaj nazwę użytkownika" id="username">
+                <p class="error-text">error</p>
+            </div>
+            <div class="form-box">
+                <label for="password">Hasło:</label>
+                <input type="password" placeholder="Podaj hasło" id="password">
+                <p class="error-text">error</p>
+            </div>
+            <div class="form-box">
+                <label for="password2">Powtórz hasło: </label>
+                <input type="password" placeholder="Powtórz hasło" id="password2">
+                <p class="error-text">error</p>
+            </div>
+            <div class="form-box">
+                <label for="email">Adres e-mail: </label>
+                <input type="email" placeholder="Podaj adres mailowy" id="email">
+                <p class="error-text">error</p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
