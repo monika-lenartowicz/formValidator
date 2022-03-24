@@ -43,6 +43,17 @@ const checkPassword = (password1, password2) => {
 	}
 };
 
+const checkMail = email => {
+	const re =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	if (re.test(email.value)) {
+		clearError(email);
+	} else {
+		showError(email, "E-mail jest niepoprawny");
+	}
+};
+
 const clear = event => {
 	event.preventDefault();
 	formInputs.forEach(element => {
@@ -56,6 +67,7 @@ const send = event => {
 	checkLength(username, 3);
 	checkLength(password, 8);
 	checkPassword(password, password2);
+	checkMail(email);
 };
 
 clearButton.addEventListener("click", clear);
