@@ -37,8 +37,8 @@ const checkLength = (input, minValue) => {
 	}
 };
 
-const checkPassword = (password1, password2) => {
-	if (password1 !== password2) {
+const checkPassword = (password, password2) => {
+	if (password.value !== password2.value) {
 		showError(password2, `Hasła do siebie nie pasują`);
 	}
 };
@@ -54,10 +54,26 @@ const checkMail = email => {
 	}
 };
 
+const checkErrors = () => {
+	const allInputs = document.querySelectorAll(".form-box");
+
+	let errorCount = 0;
+	allInputs.forEach(input => {
+		if (input.classList.contains("form-box__error")) {
+			errorCount++;
+		}
+	});
+
+	if (errorCount === 0) {
+		popup.classList.add("popup__show");
+	}
+};
+
 const clear = event => {
 	event.preventDefault();
 	formInputs.forEach(element => {
 		element.value = "";
+		clearError(element);
 	});
 };
 
@@ -68,6 +84,7 @@ const send = event => {
 	checkLength(password, 8);
 	checkPassword(password, password2);
 	checkMail(email);
+	checkErrors();
 };
 
 clearButton.addEventListener("click", clear);
