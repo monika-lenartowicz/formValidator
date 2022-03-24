@@ -30,6 +30,19 @@ const checkForm = input => {
 	});
 };
 
+const checkLength = (input, minValue) => {
+	if (input.value.length < minValue) {
+		// console.log(input.innerText);
+		showError(input, `${input.previousElementSibling.innerText.slice(0, -1)} składa się z minimum ${minValue} znaków`);
+	}
+};
+
+const checkPassword = (password1, password2) => {
+	if (password1 !== password2) {
+		showError(password2, `Hasła do siebie nie pasują`);
+	}
+};
+
 const clear = event => {
 	event.preventDefault();
 	formInputs.forEach(element => {
@@ -40,6 +53,9 @@ const clear = event => {
 const send = event => {
 	event.preventDefault();
 	checkForm(formInputs);
+	checkLength(username, 3);
+	checkLength(password, 8);
+	checkPassword(password, password2);
 };
 
 clearButton.addEventListener("click", clear);
